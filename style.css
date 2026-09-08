@@ -1,0 +1,131 @@
+body {
+    background-color: #08070b;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+    background: rgba(13, 11, 20, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+/* Outline text for headers */
+.text-stroke {
+    -webkit-text-stroke: 1px #a855f7;
+    color: transparent;
+}
+
+/* Ambient Glowing Orbs */
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.orb-1 { width: 400px; height: 400px; background: #9333ea; top: -100px; left: -100px; }
+.orb-2 { width: 500px; height: 500px; background: #c084fc; bottom: -200px; right: -100px; opacity: 0.15; }
+.orb-3 { width: 350px; height: 350px; background: #a855f7; top: 40%; left: 50%; transform: translate(-50%, -50%); opacity: 0.1; }
+
+/* Glowing Neon Button */
+.btn-neon {
+    position: relative;
+    background: linear-gradient(45deg, #9333ea, #a855f7);
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+.btn-neon::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg, #c084fc, #9333ea);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.btn-neon:hover::before {
+    opacity: 1;
+}
+
+.btn-neon:hover {
+    box-shadow: 0 0 35px rgba(168, 85, 247, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Active Navigation Link */
+.nav-link.active {
+    color: #c084fc;
+    text-shadow: 0 0 12px rgba(192, 132, 252, 0.6);
+}
+
+/* Gallery Hover Effects */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    position: relative;
+}
+
+.gallery-item img {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(8, 7, 11, 0.95), transparent);
+    opacity: 0.85; /* Visible by default on mobile */
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 0.75rem;
+    box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.2);
+}
+
+@media (min-width: 768px) {
+    .gallery-overlay {
+        opacity: 0;
+        border-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: inset 0 0 25px rgba(168, 85, 247, 0.3);
+}
+
+/* Custom Dark Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #08070b;
+}
+::-webkit-scrollbar-thumb {
+    background: #2d1c4d;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #9333ea;
+}
+
+/* Magnetic interaction helper */
+.magnetic-wrap {
+    display: inline-block;
+}
